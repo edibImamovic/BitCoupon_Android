@@ -19,6 +19,17 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@string/name_of_category"
+                android:textStyle="bold"
+                android:textColor="#ffff7814"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textview_name_of_category"
+                android:textColor="#ffff7814"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:id="@+id/textview_singleCouponName"
                 android:gravity="center"
 

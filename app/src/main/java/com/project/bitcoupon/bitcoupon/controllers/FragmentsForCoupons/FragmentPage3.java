@@ -50,7 +50,6 @@ public class FragmentPage3 extends Fragment {
         TextView mName = (TextView) v.findViewById(R.id.textview_singleCouponName);
         mName.setText(name);
 
-
         Button buyButton = (Button)v.findViewById(R.id.buy_button);
         buyButton.setOnClickListener(new View.OnClickListener() {
             @Override

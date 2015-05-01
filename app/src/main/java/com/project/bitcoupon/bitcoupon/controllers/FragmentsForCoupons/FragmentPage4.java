@@ -18,11 +18,11 @@ import com.squareup.picasso.Picasso;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FragmentPage2 extends Fragment {
+public class FragmentPage4 extends Fragment {
 
-    public static final String FRAG_TWO = "com.project.bitcoupon.bitcoupon.frag.two";
+    public static final String FRAG_FOUR = "com.project.bitcoupon.bitcoupon.frag.four";
     private  int couponId;
-    public FragmentPage2() {
+    public FragmentPage4() {
         // Required empty public constructor
     }
 
@@ -31,28 +31,22 @@ public class FragmentPage2 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_fragment_page2, container, false);
+        View v = inflater.inflate(R.layout.fragment_fragment_page4, container, false);
         Bundle arguments = getArguments();
-        int position = arguments.getInt(FRAG_TWO);
+        int position = arguments.getInt(FRAG_FOUR);
 
 
-        //For picture
 
+
+        String expiration = arguments.getString("expiration");
         String name = arguments.getString("name");
-        String price = arguments.getString("price");
-        couponId= arguments.getInt("couponId");
+        couponId = arguments.getInt("couponId");
+
+        TextView mExpiration = (TextView) v.findViewById(R.id.textview_expiration);
+        mExpiration.setText(expiration);
 
         TextView mName = (TextView) v.findViewById(R.id.textview_singleCouponName);
         mName.setText(name);
-
-
-        String description = arguments.getString("description");
-        TextView mDescription = (TextView) v.findViewById(R.id.textview_singleCouponDescription);
-        mDescription.setText(description);
-
-
-        TextView mPrice = (TextView) v.findViewById(R.id.textview_singleCouponPrice);
-        mPrice.setText("Price: " + price + getString(R.string.currency));
 
         Button buyButton = (Button)v.findViewById(R.id.buy_button);
         buyButton.setOnClickListener(new View.OnClickListener() {

@@ -1,0 +1,46 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.project.bitcoupon.bitcoupon.controllers.FragmentsForCoupons.FragmentPage4">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textview_singleCouponName"
+            android:gravity="center"
+
+            android:textStyle="bold"
+            android:padding="5dp"
+            android:textColor="#ffff8c2e"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/expireDate"
+            android:id="@+id/textview_expiration"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:padding="5dp"
+            android:textColor="#ffff8c2e"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+
+            android:textStyle="bold"
+            android:textColor="#ffff7814"
+            android:paddingRight="5dp"/>
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/buy_button"
+            android:text="@string/buy_button"/>
+    </LinearLayout>
+
+</FrameLayout>

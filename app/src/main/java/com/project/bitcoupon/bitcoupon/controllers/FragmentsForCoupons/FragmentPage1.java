@@ -40,6 +40,7 @@ public class FragmentPage1 extends Fragment {
         //For picture
 
         String imgPath = arguments.getString("picture");
+        String categoryName = arguments.getString("categoryName");
         String name = arguments.getString("name");
         couponId= arguments.getInt("couponId");
 
@@ -47,6 +48,11 @@ public class FragmentPage1 extends Fragment {
         String img = getString(R.string.image_path) + imgPath;
         img = img.replaceAll("\\\\","/");
         Picasso.with(getActivity()).load(img).into(mPicture);
+
+
+
+        TextView  mCategoryName = (TextView) v.findViewById(R.id.textview_name_of_category);
+        mCategoryName.setText(categoryName);
 
         TextView  mName = (TextView) v.findViewById(R.id.textview_singleCouponName);
         mName.setText(name);
