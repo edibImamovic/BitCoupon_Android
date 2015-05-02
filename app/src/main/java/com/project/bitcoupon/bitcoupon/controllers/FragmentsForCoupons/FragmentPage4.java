@@ -37,16 +37,35 @@ public class FragmentPage4 extends Fragment {
 
 
 
-
-        String expiration = arguments.getString("expiration");
         String name = arguments.getString("name");
         couponId = arguments.getInt("couponId");
+        String expiration = arguments.getString("expiration");
+        String minOrder = arguments.getString("minOrder");
+        String maxOrder = arguments.getString("maxOrder");
+        String price = arguments.getString("price");
+        String categoryName = arguments.getString("categoryName");
+        String seller = arguments.getString("seller");
 
-        TextView mExpiration = (TextView) v.findViewById(R.id.textview_expiration);
-        mExpiration.setText(expiration);
+        TextView mExpiration = (TextView) v.findViewById(R.id.textview_singleCouponExpiration);
+        mExpiration.setText("Expiration date: " + expiration);
 
         TextView mName = (TextView) v.findViewById(R.id.textview_singleCouponName);
         mName.setText(name);
+
+        TextView  mCategoryName = (TextView) v.findViewById(R.id.textview_name_of_category);
+        mCategoryName.setText("Category Name: " + categoryName);
+
+        TextView mMinOrder = (TextView) v.findViewById(R.id.textview_singleCouponMinOrder);
+        mMinOrder.setText("Coupons left to reach the offer goal: " + minOrder);
+
+        TextView mMaxOrder = (TextView) v.findViewById(R.id.textview_singleCouponMaxOrder);
+        mMaxOrder.setText("Maximal order of Coupons: " + maxOrder);
+
+        TextView mPrice = (TextView) v.findViewById(R.id.textview_singleCouponPrice);
+        mPrice.setText("Price: " + price + " " +getString(R.string.currency));
+
+        TextView mSeller = (TextView) v.findViewById(R.id.textview_singleCouponSeller);
+        mSeller.setText("Seller of Coupon: " + seller);
 
         Button buyButton = (Button)v.findViewById(R.id.buy_button);
         buyButton.setOnClickListener(new View.OnClickListener() {

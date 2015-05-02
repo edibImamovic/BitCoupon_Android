@@ -91,6 +91,8 @@ public class SingleCouponActivity extends BaseActivity {
                 Bundle arguments = new Bundle();
                 arguments.putInt(FragmentPage3.FRAG_THREE, position);
                 arguments.putString("name", name);
+                arguments.putString("remark", remark);
+                arguments.putString("price", price);
                 arguments.putString("picture", imgPath);
                 arguments.putInt("couponId", couponId);
                 current.setArguments(arguments);
@@ -101,7 +103,12 @@ public class SingleCouponActivity extends BaseActivity {
                 arguments.putInt(FragmentPage4.FRAG_FOUR, position);
                 arguments.putString("name", name);
                 arguments.putInt("couponId", couponId);
+                arguments.putString("seller", seller);
+                arguments.putString("price", price);
+                arguments.putString("categoryName", categoryName);
                 arguments.putString("expiration", expiration);
+                arguments.putString("minOrder", minOrder);
+                arguments.putString("maxOrder", maxOrder);
                 current.setArguments(arguments);
                 return current;
             }

@@ -8,39 +8,66 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         >
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/textview_singleCouponName"
             android:gravity="center"
-
             android:textStyle="bold"
             android:padding="5dp"
-            android:textColor="#ffff8c2e"/>
+            android:textColor="#ff696763"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/expireDate"
-            android:id="@+id/textview_expiration"
-            android:gravity="center"
+            android:id="@+id/textview_name_of_category"
             android:textStyle="bold"
             android:padding="5dp"
-            android:textColor="#ffff8c2e"/>
+            android:textColor="#ff696763"/>
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
-
+            android:id="@+id/textview_singleCouponSeller"
             android:textStyle="bold"
-            android:textColor="#ffff7814"
-            android:paddingRight="5dp"/>
+            android:padding="5dp"
+            android:textColor="#ff696763"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textview_singleCouponExpiration"
+            android:textStyle="bold"
+            android:padding="5dp"
+            android:textColor="#ff696763"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textview_singleCouponMinOrder"
+            android:textStyle="bold"
+            android:padding="5dp"
+            android:textColor="#ff696763"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textview_singleCouponMaxOrder"
+            android:textStyle="bold"
+            android:padding="5dp"
+            android:textColor="#ff696763"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textview_singleCouponPrice"
+            android:padding="5dp"
+            android:gravity="right"
+            android:textColor="#ff696763"
+            android:textSize="15dp"
+            android:textStyle="bold"/>
         <Button
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_height="34dp"
             android:id="@+id/buy_button"
-            android:text="@string/buy_button"/>
+            android:textColor="#fffffff8"
+            android:text="@string/buy_button"
+            android:padding="5dp"
+            android:background="#FE980F" />
     </LinearLayout>
 
 </FrameLayout>
