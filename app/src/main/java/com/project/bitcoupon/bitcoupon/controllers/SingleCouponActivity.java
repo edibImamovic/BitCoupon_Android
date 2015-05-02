@@ -40,7 +40,7 @@ public class SingleCouponActivity extends BaseActivity {
         couponId = it.getIntExtra("couponId", 0);
         name = it.getStringExtra("name");
         price = it.getStringExtra("price");
-        expiration =it.getStringExtra("expiration");
+        expiration = it.getStringExtra("expiration");
         imgPath = it.getStringExtra("picture");
         categoryName = it.getStringExtra("categoryName");
         description = it.getStringExtra("description");
@@ -48,7 +48,6 @@ public class SingleCouponActivity extends BaseActivity {
         seller = it.getStringExtra("seller");
         minOrder = it.getStringExtra("minOrder");
         maxOrder = it.getStringExtra("maxOrder");
-
 
 
         CouponViewAdapter adapter = new CouponViewAdapter(getSupportFragmentManager());
@@ -59,24 +58,25 @@ public class SingleCouponActivity extends BaseActivity {
 
     private class CouponViewAdapter extends FragmentStatePagerAdapter {
 
-        public CouponViewAdapter(FragmentManager fm){
+        public CouponViewAdapter(FragmentManager fm) {
             super(fm);
         }
 
         @Override
         public Fragment getItem(int position) {
             Fragment current;
-            if(position==0){
+            if (position == 0) {
                 current = new FragmentPage1();
                 Bundle arguments = new Bundle();
                 arguments.putInt(FragmentPage1.FRAG_ONE, position);
                 arguments.putString("name", name);
                 arguments.putString("categoryName", categoryName);
                 arguments.putString("picture", imgPath);
+                arguments.putString("price", price);
                 arguments.putInt("couponId", couponId);
                 current.setArguments(arguments);
                 return current;
-            } else if(position==1){
+            } else if (position == 1) {
                 current = new FragmentPage2();
                 Bundle arguments = new Bundle();
                 arguments.putInt(FragmentPage2.FRAG_TWO, position);
@@ -86,7 +86,7 @@ public class SingleCouponActivity extends BaseActivity {
                 arguments.putInt("couponId", couponId);
                 current.setArguments(arguments);
                 return current;
-            } else if(position==2){
+            } else if (position == 2) {
                 current = new FragmentPage3();
                 Bundle arguments = new Bundle();
                 arguments.putInt(FragmentPage3.FRAG_THREE, position);
@@ -95,7 +95,7 @@ public class SingleCouponActivity extends BaseActivity {
                 arguments.putInt("couponId", couponId);
                 current.setArguments(arguments);
                 return current;
-            }else{
+            } else {
                 current = new FragmentPage4();
                 Bundle arguments = new Bundle();
                 arguments.putInt(FragmentPage4.FRAG_FOUR, position);
@@ -111,7 +111,23 @@ public class SingleCouponActivity extends BaseActivity {
         public int getCount() {
             return 4;
         }
+
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            if (position == 0) {
+                return "Coupon Offer";
+            } else if (position == 1) {
+                return "Description";
+            } else if (position == 2) {
+                return "Remark";
+            } else {
+                return "Detailed Description";
+            }
+
+
+        }
+
+
     }
-
-
 }

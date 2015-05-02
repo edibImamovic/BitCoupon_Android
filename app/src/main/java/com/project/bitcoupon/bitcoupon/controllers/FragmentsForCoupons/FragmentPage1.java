@@ -42,6 +42,7 @@ public class FragmentPage1 extends Fragment {
         String imgPath = arguments.getString("picture");
         String categoryName = arguments.getString("categoryName");
         String name = arguments.getString("name");
+        String price = arguments.getString("price");
         couponId= arguments.getInt("couponId");
 
         ImageView mPicture = (ImageView) v.findViewById(R.id.imageview_singleCouponImage);
@@ -52,10 +53,13 @@ public class FragmentPage1 extends Fragment {
 
 
         TextView  mCategoryName = (TextView) v.findViewById(R.id.textview_name_of_category);
-        mCategoryName.setText(categoryName);
+        mCategoryName.setText("Category Name: " + categoryName);
 
         TextView  mName = (TextView) v.findViewById(R.id.textview_singleCouponName);
         mName.setText(name);
+
+        TextView mPrice = (TextView) v.findViewById(R.id.textview_singleCouponPrice);
+        mPrice.setText("Price: " + price + " " +getString(R.string.currency));
 
         Button buyButton = (Button)v.findViewById(R.id.buy_button);
         buyButton.setOnClickListener(new View.OnClickListener() {

@@ -1,15 +1,15 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="wrap_content"
     android:layout_height="match_parent"
     tools:context="com.project.bitcoupon.bitcoupon.controllers.FragmentsForCoupons.FragmentPage1">
 
 
 
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            >
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
             <ImageView
                 android:layout_weight="1"
                 android:layout_width="match_parent"
@@ -19,29 +19,32 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/name_of_category"
+                android:id="@+id/textview_singleCouponName"
+                android:gravity="center"
                 android:textStyle="bold"
-                android:textColor="#ffff7814"/>
+                android:padding="5dp"
+                android:textColor="#ff696763"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/textview_name_of_category"
-                android:textColor="#ffff7814"/>
+                android:textStyle="bold"
+                android:textColor="#ff696763"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textview_singleCouponName"
-                android:gravity="center"
-
-                android:textStyle="bold"
+                android:id="@+id/textview_singleCouponPrice"
                 android:padding="5dp"
-                android:textColor="#ffff8c2e"/>
+                android:gravity="right"
+                android:textColor="#ff696763"
+                android:textSize="15dp"
+                android:textStyle="bold"/>
             <Button
                 android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
+                android:layout_height="34dp"
                 android:id="@+id/buy_button"
-                android:text="@string/buy_button"/>
-        </LinearLayout>
-
-
+                android:textColor="#fffffff8"
+                android:text="@string/buy_button"
+                android:background="#FE980F" />
+</LinearLayout>
 </FrameLayout>
