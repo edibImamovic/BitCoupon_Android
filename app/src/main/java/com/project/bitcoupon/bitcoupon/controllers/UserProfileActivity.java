@@ -25,6 +25,7 @@ public class UserProfileActivity extends BaseActivity {
     private TextView mCity;
     private ImageView mImage;
     private Button mUserCoupons;
+    private Button mEditProfle;
     private  String id;
 
 
@@ -84,6 +85,14 @@ public class UserProfileActivity extends BaseActivity {
             }
         });
 
+        mEditProfle = (Button) findViewById(R.id.button_go_editProfile);
+        mEditProfle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(UserProfileActivity.this, UpdateUserProfileActivity.class);
+                startActivity(i);
+            }
+        });
 
 
     }

@@ -50,6 +50,14 @@
             android:name=".controllers.PayPalActivity"
             android:label="@string/title_activity_pay_pal" >
         </activity>
+        <activity
+            android:name=".controllers.UpdateUserProfileActivity"
+            android:label="@string/title_activity_update_user_profile" >
+        </activity>
+        <activity
+            android:name=".controllers.FragmentsForCoupons.UserSettingsActivity"
+            android:label="@string/title_activity_user_settings" >
+        </activity>
     </application>
 
 </manifest>
