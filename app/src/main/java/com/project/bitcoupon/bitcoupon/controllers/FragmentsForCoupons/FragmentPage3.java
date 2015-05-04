@@ -37,18 +37,29 @@ public class FragmentPage3 extends Fragment {
 
 
         //For picture
-
         String imgPath = arguments.getString("picture");
         String name = arguments.getString("name");
-        couponId = arguments.getInt("couponId");
+        String price = arguments.getString("price");
+        couponId= arguments.getInt("couponId");
+        String remark = arguments.getString("remark");
+
+
+
+        TextView mName = (TextView) v.findViewById(R.id.textview_singleCouponName);
+        mName.setText(name);
+
+        TextView mRemark = (TextView) v.findViewById(R.id.textview_singleCouponRemark);
+        mRemark.setText(remark);
 
         ImageView mPicture = (ImageView) v.findViewById(R.id.imageview_singleCouponImage);
         String img = getString(R.string.image_path) + imgPath;
         img = img.replaceAll("\\\\","/");
         Picasso.with(getActivity()).load(img).into(mPicture);
 
-        TextView mName = (TextView) v.findViewById(R.id.textview_singleCouponName);
-        mName.setText(name);
+
+        TextView mPrice = (TextView) v.findViewById(R.id.textview_singleCouponPrice);
+        mPrice.setText("Price: " + price + " " +getString(R.string.currency));
+
 
 
         Button buyButton = (Button)v.findViewById(R.id.buy_button);

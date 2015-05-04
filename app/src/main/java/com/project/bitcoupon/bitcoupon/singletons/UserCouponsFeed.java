@@ -70,11 +70,11 @@ public class UserCouponsFeed {
                         String couponPicture =  postObj.getString("picture");
                         String couponTotalPrice =  postObj.getString("totalPrice");
                         String couponTransactionDate =  postObj.getString("transactionDate");
-                        String couponPaymentId =  postObj.getString("paymentId");
+                       // String couponPaymentId =  postObj.getString("paymentId");
                         String couponToken =  postObj.getString("token");
 
                         mFeed.add(new CouponBought(couponId, couponName, couponDescription, couponPrice, couponQuantity,
-                                couponPicture,couponTotalPrice, couponTransactionDate, couponPaymentId, couponToken));
+                                couponPicture,couponTotalPrice, couponTransactionDate, couponToken));
                         Log.d("TESTAG" ,postObj.toString());
                     }
                 } catch (JSONException e) {

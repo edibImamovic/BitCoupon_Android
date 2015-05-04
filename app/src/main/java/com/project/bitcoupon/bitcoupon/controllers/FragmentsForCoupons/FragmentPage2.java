@@ -39,20 +39,19 @@ public class FragmentPage2 extends Fragment {
         //For picture
 
         String name = arguments.getString("name");
-
+        String price = arguments.getString("price");
         couponId= arguments.getInt("couponId");
+        String description = arguments.getString("description");
 
         TextView mName = (TextView) v.findViewById(R.id.textview_singleCouponName);
         mName.setText(name);
 
-
-        String description = arguments.getString("description");
         TextView mDescription = (TextView) v.findViewById(R.id.textview_singleCouponDescription);
         mDescription.setText(description);
 
-        String price = arguments.getString("price");
+
         TextView mPrice = (TextView) v.findViewById(R.id.textview_singleCouponPrice);
-        mPrice.setText("Price: " + price + getString(R.string.currency));
+        mPrice.setText("Price: " + price + " " +getString(R.string.currency));
 
         Button buyButton = (Button)v.findViewById(R.id.buy_button);
         buyButton.setOnClickListener(new View.OnClickListener() {

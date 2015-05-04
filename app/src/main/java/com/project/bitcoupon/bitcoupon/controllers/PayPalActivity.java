@@ -1,17 +1,23 @@
 package com.project.bitcoupon.bitcoupon.controllers;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 import com.project.bitcoupon.bitcoupon.R;
+import com.project.bitcoupon.bitcoupon.models.Coupon;
+import com.project.bitcoupon.bitcoupon.singletons.UserData;
 
-public class PayPalActivity extends ActionBarActivity {
+public class PayPalActivity extends BaseActivity  {
 
+    private int userId;
     private int couponId;
 
     @Override
@@ -19,12 +25,15 @@ public class PayPalActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pay_pal);
 
+        userId = UserData.getInstance().getId();
+
         Intent it = getIntent();
 
         couponId = it.getIntExtra("couponId", 0);
+        String couponIdString = "" +  couponId ;
+        String url = "http://192.168.0.104:9000/api/mobileCheckout/" + couponIdString + "/" + userId;
 
-        String s = "" +  couponId ;
-        String url = "http://10.0.2.2:9000/coupon/" + s;
+
 
         WebView webView = (WebView) findViewById(R.id.web_view_payment);
         WebSettings settings = webView.getSettings();
@@ -33,29 +42,33 @@ public class PayPalActivity extends ActionBarActivity {
         settings.setJavaScriptEnabled(true);
         webView.loadUrl(url);
 
+        // If user decide to go on another web page keep the user inside the app, and If a user has successfully finished his buying, returned him to new activity
+      webView.setWebViewClient(new WebViewClient() {
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                if (Uri.parse(url).getHost().equals( "http://" + getString(R.string.IP) + ":9000/api/backToMobile")) {
+                    Log.d("BACK", "TO MOBILE");
+                    Intent i = new Intent(PayPalActivity.this, UserProfileActivity.class);
+                    startActivity(i);
+                    return false;
+                }
 
-    }
+                if(url.contains("http://" + getString(R.string.IP) + ":9000/api/backToMobile")){
+                    Intent i = new Intent(PayPalActivity.this, CouponActivity.class);
+                    startActivity(i);
+                }
 
+                if (Uri.parse(url).getHost().equals("http://" + getString(R.string.IP) + ":9000")) {
+                    Intent j = new Intent(PayPalActivity.this, CouponActivity.class);
+                    startActivity(j);
+                    return false;
+                }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_pay_pal, menu);
-        return true;
-    }
+                Log.d("PAGE", url);
+                view.loadUrl(url);
+                return true;
+            }
+        });
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 }

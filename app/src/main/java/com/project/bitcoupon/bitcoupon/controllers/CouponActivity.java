@@ -126,11 +126,17 @@ public class CouponActivity extends BaseActivity {
                 try {
                     JSONObject coupon = new JSONObject(responseJson);
                     Intent goToCoupon = new Intent(CouponActivity.this, SingleCouponActivity.class);
-                    goToCoupon.putExtra("name", coupon.getString("name"));
-                    goToCoupon.putExtra("picture", coupon.getString("picture"));
-                    goToCoupon.putExtra("description", coupon.getString("description"));
-                    goToCoupon.putExtra("price", coupon.getString("price"));
                     goToCoupon.putExtra("couponId", couponId);
+                    goToCoupon.putExtra("name", coupon.getString("name"));
+                    goToCoupon.putExtra("price", coupon.getString("price"));
+                    goToCoupon.putExtra("expiration", coupon.getString("expiration"));
+                    goToCoupon.putExtra("picture", coupon.getString("picture"));
+                    goToCoupon.putExtra("categoryName", coupon.getString("categoryName"));
+                    goToCoupon.putExtra("description", coupon.getString("description"));
+                    goToCoupon.putExtra("remark", coupon.getString("remark"));
+                    goToCoupon.putExtra("seller", coupon.getString("seller"));
+                    goToCoupon.putExtra("minOrder", coupon.getString("minOrder"));
+                    goToCoupon.putExtra("maxOrder", coupon.getString("maxOrder"));
                     startActivity(goToCoupon);
                 } catch (JSONException e) {
                     makeToast(R.string.toast_try_again);
