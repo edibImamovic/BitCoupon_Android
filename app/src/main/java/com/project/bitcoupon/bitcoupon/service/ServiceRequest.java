@@ -21,6 +21,9 @@ public class ServiceRequest {
         request(url, json, callback, true);
     }
 
+    public static void post2(String url, String json){
+        request2(url, json, true);
+    }
     private static void request(String url,
                                 String json,
                                 Callback callback,
@@ -47,6 +50,34 @@ public class ServiceRequest {
 
         Call call = client.newCall(request);
         call.enqueue(callback);
+    }
+
+
+    private static void request2(String url,
+                                String json,
+                                boolean isPost){
+
+        MediaType JSON = MediaType.parse("application/json");
+
+        OkHttpClient client = new OkHttpClient();
+
+        Request.Builder requestBuilder = new Request.Builder();
+
+        if(isPost == true) {
+            RequestBody requestBody = RequestBody.create(JSON,json);
+            requestBuilder.post(requestBody);
+        }
+        else
+            requestBuilder.get();
+
+        Request request = requestBuilder
+                .url(url)
+                .addHeader("Authorization", UserData.getInstance().getBaseAuth())
+                .addHeader("Accept", "application/json")
+                .build();
+
+        Call call = client.newCall(request);
+
     }
 
 }

@@ -18,7 +18,7 @@ public class CouponBought {
         private String mPaymentId;
         private String mToken;
 
-        public CouponBought( String couponId, String name, String description, String price, String quantity, String picture, String totalPrice, String transactionDate, String paymentId, String token) {
+        public CouponBought( String couponId, String name, String description, String price, String quantity, String picture, String totalPrice, String transactionDate, String token) {
         mCouponId = couponId;
         mName = name;
         mDescription = description;
@@ -27,7 +27,6 @@ public class CouponBought {
         mPicture = picture;
         mTotalPrice = totalPrice;
         mTransactionDate = transactionDate;
-        mPaymentId = paymentId;
         mToken = token;
     }
 

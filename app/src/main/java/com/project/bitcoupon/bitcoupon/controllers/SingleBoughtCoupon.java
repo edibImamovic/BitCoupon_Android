@@ -45,7 +45,7 @@ public class SingleBoughtCoupon extends BaseActivity {
         String quantity = it.getStringExtra("quantity");
         String totalPrice = it.getStringExtra("totalPrice");
         String transactionDate = it.getStringExtra("transactionDate");
-        String paymentId = it.getStringExtra("paymentId");
+       // String paymentId = it.getStringExtra("paymentId");
         String token = it.getStringExtra("token");
 
 
@@ -70,7 +70,7 @@ public class SingleBoughtCoupon extends BaseActivity {
         mTotalPrice.setText("Total price: " +totalPrice + getString(R.string.currency) );
 
         mPayemantId = (TextView) findViewById(R.id.textview_paymant_id);
-        mTotalPrice.setText("Payemant ID: " +paymentId);
+        mTotalPrice.setText("Token: " +token);
 
         mTrasactionDate = (TextView) findViewById(R.id.textview_transaction_date);
         mTrasactionDate.setText("Transaction Date: " + transactionDate);

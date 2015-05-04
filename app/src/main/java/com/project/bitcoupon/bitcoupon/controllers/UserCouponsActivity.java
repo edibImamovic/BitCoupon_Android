@@ -151,7 +151,7 @@ public class UserCouponsActivity extends BaseActivity {
                     goToCoupon.putExtra("picture", coupon.getString("picture"));
                     goToCoupon.putExtra("totalPrice", coupon.getString("totalPrice"));
                     goToCoupon.putExtra("transactionDate", coupon.getString("transactionDate"));
-                    goToCoupon.putExtra("paymentId", coupon.getString("paymentId"));
+                   // goToCoupon.putExtra("paymentId", coupon.getString("paymentId"));
                     goToCoupon.putExtra("token", coupon.getString("token"));
                     startActivity(goToCoupon);
 
