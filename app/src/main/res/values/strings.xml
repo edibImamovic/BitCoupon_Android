@@ -68,7 +68,6 @@
     <string name="expireDate">Date of Expire:</string>
     <string name="name_of_category">Category Name:</string>
 
-    <string name="title_activity_pay_pal">PayPal</string>
     <string name="title_activity_update_user_profile">UpdateUserProfileActivity</string>
     <string name="textView_updateProfil_username">New username</string>
     <string name="textView_updateProfile_view">UPDATE PROFILE</string>

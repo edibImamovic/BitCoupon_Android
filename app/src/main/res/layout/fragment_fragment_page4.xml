@@ -60,14 +60,16 @@
             android:textColor="#ff696763"
             android:textSize="15dp"
             android:textStyle="bold"/>
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="34dp"
-            android:id="@+id/buy_button"
-            android:textColor="#fffffff8"
-            android:text="@string/buy_button"
-            android:padding="5dp"
-            android:background="#FE980F" />
     </LinearLayout>
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_height="50dp"
+        android:id="@+id/buy_button"
+        android:textColor="#fffffff8"
+        android:text="@string/buy_button"
+        android:padding="5dp"
+        android:background="#FE980F" />
 
 </FrameLayout>
