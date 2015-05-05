@@ -75,5 +75,8 @@
     <string name="textView_updateProfil_dob">Date:</string>
     <string name="button_updateUserProfile_save">Save</string>
     <string name="title_activity_user_settings">UserSettingsActivity</string>
+    <string name="ticker">Ticker</string>
+    <string name="titleofnotification">Title</string>
+    <string name="contentofnotification">Content</string>
 
 </resources>
