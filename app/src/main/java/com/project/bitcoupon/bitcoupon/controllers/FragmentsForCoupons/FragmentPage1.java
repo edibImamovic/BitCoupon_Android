@@ -2,6 +2,7 @@ package com.project.bitcoupon.bitcoupon.controllers.FragmentsForCoupons;
 
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -20,6 +21,8 @@ import com.squareup.picasso.Picasso;
  * A simple {@link Fragment} subclass.
  */
 public class FragmentPage1 extends Fragment {
+
+    private SharedPreferences mSharedPreferences;
 
     public static final String FRAG_ONE = "com.project.bitcoupon.bitcoupon.frag.one";
    private  int couponId;
