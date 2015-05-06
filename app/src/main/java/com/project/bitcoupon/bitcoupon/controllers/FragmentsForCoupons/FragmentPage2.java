@@ -35,7 +35,6 @@ public class FragmentPage2 extends Fragment {
         Bundle arguments = getArguments();
         int position = arguments.getInt(FRAG_TWO);
 
-
         //For picture
 
         String name = arguments.getString("name");
@@ -51,7 +50,7 @@ public class FragmentPage2 extends Fragment {
 
 
         TextView mPrice = (TextView) v.findViewById(R.id.textview_singleCouponPrice);
-        mPrice.setText("Price: " + price + " " +getString(R.string.currency));
+        mPrice.setText(getString(R.string.price) + price + " " +getString(R.string.currency));
 
         Button buyButton = (Button)v.findViewById(R.id.buy_button);
         buyButton.setOnClickListener(new View.OnClickListener() {

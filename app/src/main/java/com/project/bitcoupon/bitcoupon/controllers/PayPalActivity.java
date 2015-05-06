@@ -26,15 +26,16 @@ public class PayPalActivity extends BaseActivity  {
         setContentView(R.layout.activity_pay_pal);
 
         userId = UserData.getInstance().getId();
-
         Intent it = getIntent();
 
         couponId = it.getIntExtra("couponId", 0);
         String couponIdString = "" +  couponId ;
-        String url = "http://192.168.0.104:9000/api/mobileCheckout/" + couponIdString + "/" + userId;
+        String url = getString(R.string.IP) +
+                ":9000/api/mobileCheckout/" + couponIdString + "/" + userId;
 
-
-
+        /**
+         * This is webView for application
+         */
         WebView webView = (WebView) findViewById(R.id.web_view_payment);
         WebSettings settings = webView.getSettings();
         settings.setSupportZoom(true);
@@ -43,11 +44,10 @@ public class PayPalActivity extends BaseActivity  {
         webView.loadUrl(url);
 
         // If user decide to go on another web page keep the user inside the app, and If a user has successfully finished his buying, returned him to new activity
-      webView.setWebViewClient(new WebViewClient() {
+        webView.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 if (Uri.parse(url).getHost().equals( "http://" + getString(R.string.IP) + ":9000/api/backToMobile")) {
-                    Log.d("BACK", "TO MOBILE");
                     Intent i = new Intent(PayPalActivity.this, UserProfileActivity.class);
                     startActivity(i);
                     return false;
@@ -64,11 +64,9 @@ public class PayPalActivity extends BaseActivity  {
                     return false;
                 }
 
-                Log.d("PAGE", url);
                 view.loadUrl(url);
                 return true;
             }
         });
-
     }
 }

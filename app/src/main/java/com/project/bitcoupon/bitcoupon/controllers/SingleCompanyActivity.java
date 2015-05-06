@@ -3,6 +3,7 @@ package com.project.bitcoupon.bitcoupon.controllers;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
@@ -22,7 +23,6 @@ public class SingleCompanyActivity extends BaseActivity {
     private TextView mCity;
     private TextView mContact;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,8 +40,9 @@ public class SingleCompanyActivity extends BaseActivity {
 
 
         mLogo = (ImageView) findViewById(R.id.imageview_singleCompanyImage);
-        String img = getString(R.string.image_path) + imgPath;
+        String img = imgPath;
         img = img.replaceAll("\\\\","/");
+        Log.d("IMGPATH", img);
         Picasso.with(SingleCompanyActivity.this).load(img).into(mLogo);
 
         mName = (TextView) findViewById(R.id.textview_singleCompanyName);

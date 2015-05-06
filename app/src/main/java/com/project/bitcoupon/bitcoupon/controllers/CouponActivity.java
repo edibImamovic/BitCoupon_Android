@@ -45,7 +45,6 @@ public class CouponActivity extends BaseActivity {
     public static final String MyPREFERENCES = "MyPrefs" ;
     private static final String TAG = "CouponActivity_Tag";
     private SharedPreferences mSharedPreferences;
-    private Button mCompany;
     private ListView mCouponList;
     private EditText mFilter;
     private CouponAdapter mAdapter;
@@ -59,17 +58,21 @@ public class CouponActivity extends BaseActivity {
 
         mCouponList= (ListView)findViewById(R.id.list_view_coupons);
         CouponFeed couponFeed = CouponFeed.getInstance();
-        //if mobile oriantation is chabged - don't take a new list
+        //if mobile oriantation is changed - don't take a new list
         if(couponFeed.getFeed().size() == 0){
             couponFeed.getFeed(getString(R.string.service_posts));
             coupons = couponFeed.getFeed();
         }
 
+        // This is custom Adapter for List
         mAdapter = new CouponAdapter(this, coupons);
         mCouponList.setAdapter(mAdapter);
         mCouponList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                /**
+                 * For each item in list, if is clicked send a post Request
+                 */
                 Coupon clicked = coupons.get(position);
                 couponId = clicked.getId();
                 String url = getString(R.string.service_single_coupon);
@@ -87,7 +90,9 @@ public class CouponActivity extends BaseActivity {
         });
         mCouponList.setAdapter(mAdapter);
 
-
+        /**
+         * This is search filter for our liste
+         */
         mFilter = (EditText)findViewById(R.id.edit_text_filter);
         mFilter.addTextChangedListener(new TextWatcher() {
             @Override
@@ -101,7 +106,6 @@ public class CouponActivity extends BaseActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-
             }
         });
     }
@@ -109,9 +113,14 @@ public class CouponActivity extends BaseActivity {
     @Override
     public void onBackPressed(){
        moveTaskToBack(false);
-
     }
 
+    /**
+     * This is response for our JSON request
+     * onFailure - if JSON don't successe
+     * onResponse - if JSON success we expect this attributes
+     * @return
+     */
     private Callback getCoupon() {
         return new Callback() {
             @Override
@@ -146,8 +155,11 @@ public class CouponActivity extends BaseActivity {
         };
     }
 
+    /**
+     * This is method for making message on user mobile display - Toast
+     * @param messageId
+     */
     private void makeToast(final int messageId){
-
         new Handler(Looper.getMainLooper())
                 .post(new Runnable() {
                     @Override
@@ -159,8 +171,12 @@ public class CouponActivity extends BaseActivity {
                 });
     }
 
-
-
+    /**
+     * This is response for our JSON request
+     * onFailure - if JSON don't successe
+     * onResponse - if JSON success we expect this attributes
+     * @return
+     */
     private Callback getProfile() {
         return new Callback() {
             @Override
@@ -197,6 +213,9 @@ public class CouponActivity extends BaseActivity {
         };
     }
 
+    /**
+     * This is private class for creating custom adapter
+     */
     private  class CouponAdapter extends ArrayAdapter<Coupon> {
 
         private final Context context;
@@ -228,7 +247,9 @@ public class CouponActivity extends BaseActivity {
             return mListToShow.get(position);
         }
 
-
+        /**
+         * Search filter for list of coupons when User input some value
+         */
         private class CouponsFilter extends Filter {
 
             @Override
@@ -267,9 +288,13 @@ public class CouponActivity extends BaseActivity {
             }
         }
 
-
-
-
+        /**
+         * For all coupons in list we define how will be shown to user in one list
+         * @param position - id of coupons in list
+         * @param convertView - layout view for one coupons in list
+         * @param viewGroup
+         * @return - convertView
+         */
         @Override
         public View getView(int position, View convertView, ViewGroup viewGroup) {
 
@@ -287,7 +312,7 @@ public class CouponActivity extends BaseActivity {
 
             couponPrice.setText("" + current.getPrice() + getString(R.string.currency));
             ImageView couponImage = (ImageView) convertView.findViewById(R.id.imageview_image);
-            String img =getString(R.string.image_path) + current.getPicture();
+            String img = current.getPicture();
             img = img.replaceAll("\\\\","/");
             Log.d("TAG", "IMG" + img);
             Picasso.with(getContext()).load(img).into(couponImage);
@@ -295,8 +320,4 @@ public class CouponActivity extends BaseActivity {
 
         }
     }
-
-
-
-
 }

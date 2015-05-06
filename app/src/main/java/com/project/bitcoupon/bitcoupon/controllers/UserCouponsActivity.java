@@ -44,7 +44,6 @@ public class UserCouponsActivity extends BaseActivity {
 
     private static final String TAG = "UserCouponActivity_Tag";
 
-    private SharedPreferences mSharedPreferences;
     private ListView mCouponList;
     private EditText mFilter;
     private CouponAdapter mAdapter;
@@ -127,6 +126,12 @@ public class UserCouponsActivity extends BaseActivity {
 
     }
 
+    /**
+     * This is response for our JSON request
+     * onFailure - if JSON don't successe
+     * onResponse - if JSON success we expect this attributes
+     * @return
+     */
     private Callback getCoupon() {
         return new Callback() {
             @Override
@@ -163,8 +168,12 @@ public class UserCouponsActivity extends BaseActivity {
         };
     }
 
-    private void makeToast(final int messageId) {
 
+    /**
+     * This is method for making message on user mobile display - Toast
+     * @param messageId
+     */
+    private void makeToast(final int messageId) {
         new Handler(Looper.getMainLooper())
                 .post(new Runnable() {
                     @Override
@@ -176,11 +185,10 @@ public class UserCouponsActivity extends BaseActivity {
                 });
     }
 
-
-
-
+    /**
+     * This is private class for creating custom adapter
+     */
     private  class CouponAdapter extends ArrayAdapter<CouponBought> {
-
         private final Context context;
         private ArrayList<CouponBought> origin;
         private ArrayList<CouponBought> mListToShow;
@@ -209,8 +217,9 @@ public class UserCouponsActivity extends BaseActivity {
         public CouponBought getItem(int position) {
             return mListToShow.get(position);
         }
-
-
+        /**
+         * Search filter for list of companies when User input some value
+         */
         private class CouponsFilter extends Filter {
 
             @Override
@@ -249,9 +258,13 @@ public class UserCouponsActivity extends BaseActivity {
             }
         }
 
-
-
-
+        /**
+         * For all companies in list we define how will be shown to user in one list
+         * @param position - id of companies in list
+         * @param convertView - layout view for one companies in list
+         * @param viewGroup
+         * @return - convertView
+         */
         @Override
         public View getView(int position, View convertView, ViewGroup viewGroup) {
 
@@ -268,14 +281,11 @@ public class UserCouponsActivity extends BaseActivity {
 
             couponPrice.setText("" + current.getTotalPrice() + getString(R.string.currency));
             ImageView couponImage = (ImageView) convertView.findViewById(R.id.imageview_image);
-            String img = getString(R.string.image_path) + current.getPicture();
+            String img =  current.getPicture();
             img = img.replaceAll("\\\\", "/");
             Log.d(TAG, "IMG"+ img);
             Picasso.with(getContext()).load(img).into(couponImage);
             return convertView;
         }
     }
-
-
-
 }

@@ -5,7 +5,6 @@ package com.project.bitcoupon.bitcoupon.models;
  */
 public class CouponBought {
 
-
         private int mId;
         private String mCouponId;
         private String mName;
@@ -18,6 +17,18 @@ public class CouponBought {
         private String mPaymentId;
         private String mToken;
 
+    /**
+     * Constructor
+     * @param couponId
+     * @param name
+     * @param description
+     * @param price
+     * @param quantity
+     * @param picture
+     * @param totalPrice
+     * @param transactionDate
+     * @param token
+     */
         public CouponBought( String couponId, String name, String description, String price, String quantity, String picture, String totalPrice, String transactionDate, String token) {
         mCouponId = couponId;
         mName = name;
@@ -30,8 +41,10 @@ public class CouponBought {
         mToken = token;
     }
 
-
-
+    /**
+     * Getters and setters
+     * @return
+     */
     public int getId() {
         return mId;
     }

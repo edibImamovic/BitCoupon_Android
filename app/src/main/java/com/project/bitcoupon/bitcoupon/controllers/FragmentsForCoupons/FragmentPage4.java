@@ -1,6 +1,5 @@
 package com.project.bitcoupon.bitcoupon.controllers.FragmentsForCoupons;
 
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -26,7 +25,6 @@ public class FragmentPage4 extends Fragment {
         // Required empty public constructor
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -34,8 +32,6 @@ public class FragmentPage4 extends Fragment {
         View v = inflater.inflate(R.layout.fragment_fragment_page4, container, false);
         Bundle arguments = getArguments();
         int position = arguments.getInt(FRAG_FOUR);
-
-
 
         String name = arguments.getString("name");
         couponId = arguments.getInt("couponId");
@@ -53,19 +49,19 @@ public class FragmentPage4 extends Fragment {
         mName.setText(name);
 
         TextView  mCategoryName = (TextView) v.findViewById(R.id.textview_name_of_category);
-        mCategoryName.setText("Category Name: " + categoryName);
+        mCategoryName.setText( getString(R.string.category_name) + categoryName);
 
         TextView mMinOrder = (TextView) v.findViewById(R.id.textview_singleCouponMinOrder);
-        mMinOrder.setText("Coupons left to reach the offer goal: " + minOrder);
+        mMinOrder.setText(getString(R.string.coupons_left) + minOrder);
 
         TextView mMaxOrder = (TextView) v.findViewById(R.id.textview_singleCouponMaxOrder);
-        mMaxOrder.setText("Maximal order of Coupons: " + maxOrder);
+        mMaxOrder.setText(getString(R.string.maximal_coupons) + maxOrder);
 
         TextView mPrice = (TextView) v.findViewById(R.id.textview_singleCouponPrice);
-        mPrice.setText("Price: " + price + " " +getString(R.string.currency));
+        mPrice.setText(getString(R.string.price) + price + " " +getString(R.string.currency));
 
         TextView mSeller = (TextView) v.findViewById(R.id.textview_singleCouponSeller);
-        mSeller.setText("Seller of Coupon: " + seller);
+        mSeller.setText(getString(R.string.seller) + seller);
 
         Button buyButton = (Button)v.findViewById(R.id.buy_button);
         buyButton.setOnClickListener(new View.OnClickListener() {

@@ -116,8 +116,6 @@ public class UpdateUserProfileActivity extends BaseActivity {
                 try {
                     JSONObject editProfile = new JSONObject(responseJson);
                     String msg = editProfile.getString("info");
-                    Log.d("PORUKA", msg);
-                    //Toast.makeText(UpdateUserProfileActivity.this, msg, Toast.LENGTH_SHORT).show();
                     Intent userProfile = new Intent(UpdateUserProfileActivity.this, CouponActivity.class);
                     startActivity(userProfile);
                 } catch (JSONException e) {
