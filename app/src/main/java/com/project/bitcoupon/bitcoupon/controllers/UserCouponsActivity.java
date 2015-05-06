@@ -268,7 +268,7 @@ public class UserCouponsActivity extends BaseActivity {
 
             couponPrice.setText("" + current.getTotalPrice() + getString(R.string.currency));
             ImageView couponImage = (ImageView) convertView.findViewById(R.id.imageview_image);
-            String img = getString(R.string.image_path) + current.getPicture();
+            String img = current.getPicture();
             img = img.replaceAll("\\\\", "/");
             Log.d(TAG, "IMG"+ img);
             Picasso.with(getContext()).load(img).into(couponImage);

@@ -40,7 +40,7 @@ public class SingleCompanyActivity extends BaseActivity {
 
 
         mLogo = (ImageView) findViewById(R.id.imageview_singleCompanyImage);
-        String img = getString(R.string.image_path) + imgPath;
+        String img = imgPath;
         img = img.replaceAll("\\\\","/");
         Picasso.with(SingleCompanyActivity.this).load(img).into(mLogo);
 

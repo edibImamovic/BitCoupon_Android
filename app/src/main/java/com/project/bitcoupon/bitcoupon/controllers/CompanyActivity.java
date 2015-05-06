@@ -280,7 +280,7 @@ public class CompanyActivity extends BaseActivity {
 
 
             ImageView companyImage = (ImageView) convertView.findViewById(R.id.imageview_image);
-            String img =getString(R.string.image_path) + current.getmLogo();
+            String img = current.getmLogo();
             img = img.replaceAll("\\\\","/");
             Log.d(TAG, "Image:" + img);
             Picasso.with(getContext()).load(img).into(companyImage);

@@ -47,7 +47,7 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        notification();
+
         mSharedPreferences = this.getSharedPreferences(SHARED_PREFERENCES, Context.MODE_PRIVATE);
         String email = mSharedPreferences.getString(
                 getString(R.string.key_user_email),
@@ -91,14 +91,14 @@ public class MainActivity extends BaseActivity {
         });
     }
 
-private void notification(){
+public void notification(){
 
     Resources r = getResources();
     PendingIntent pi = PendingIntent
             .getActivity(this, 0, new Intent(this, CouponActivity.class), 0);
     Notification notification = new NotificationCompat.Builder(this)
             .setTicker(r.getString(R.string.ticker))
-            .setSmallIcon(android.R.drawable.ic_menu_report_image)
+            .setSmallIcon(R.drawable.logo)
             .setContentTitle(r.getString(R.string.titleofnotification))
             .setContentText(r.getString(R.string.contentofnotification))
             .setContentIntent(pi)
@@ -134,12 +134,17 @@ private void notification(){
                         Log.d(TAG, response.body().toString());
 
                         String username = user.getString("name");
-                        Log.d(TAG, response.body().toString());
-                        UserData userData = UserData.getInstance();
-                        userData.setId(id);
-                        userData.setUsername(username);
-                        saveUserCredentials();
-                        goToPosts();
+                        String updates = user.getString("updates");
+                        if (updates.equals("true")){
+                            notification();
+                        }
+                            Log.d(TAG, response.body().toString());
+                            UserData userData = UserData.getInstance();
+                            userData.setId(id);
+                            userData.setUsername(username);
+                            saveUserCredentials();
+                            goToPosts();
+
                     }
                 } catch (JSONException e) {
                     makeToast(R.string.toast_try_again);
