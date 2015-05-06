@@ -52,7 +52,7 @@ public class SingleBoughtCoupon extends BaseActivity {
         //For picture
         mPicture = (ImageView) findViewById(R.id.imageView_single_bought_CouponIMG);
         Log.d(TAG, "" + mPicture.isShown());
-        String img = getString(R.string.image_path) + imgPath;
+        String img = imgPath;
         img = img.replaceAll("\\\\","/");
         Picasso.with(this).load(img).into(mPicture);
         mName = (TextView) findViewById(R.id.textview_single_BoughtCouponName);

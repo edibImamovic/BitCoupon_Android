@@ -52,7 +52,7 @@ public class FragmentPage3 extends Fragment {
         mRemark.setText(remark);
 
         ImageView mPicture = (ImageView) v.findViewById(R.id.imageview_singleCouponImage);
-        String img = getString(R.string.image_path) + imgPath;
+        String img = imgPath;
         img = img.replaceAll("\\\\","/");
         Picasso.with(getActivity()).load(img).into(mPicture);
 

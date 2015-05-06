@@ -2,12 +2,17 @@ package com.project.bitcoupon.bitcoupon.controllers;
 
 
 import android.app.Activity;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.os.Handler;
 import android.os.Looper;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -42,6 +47,7 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         mSharedPreferences = this.getSharedPreferences(SHARED_PREFERENCES, Context.MODE_PRIVATE);
         String email = mSharedPreferences.getString(
                 getString(R.string.key_user_email),
@@ -53,14 +59,14 @@ public class MainActivity extends BaseActivity {
                 null
         );
 
-        if(email != null && password != null){
+        if (email != null && password != null) {
             setUserData(email, password);
             Log.d("LOGIN", "email> " + email + " password> " + password);
             loginUser();
         }
 
         final EditText editEmail = (EditText) findViewById(R.id.edit_text_email);
-        final EditText editPassword = (EditText)findViewById(R.id.edit_text_password);
+        final EditText editPassword = (EditText) findViewById(R.id.edit_text_password);
 
         Button buttonLogin = (Button) findViewById(R.id.button_login);
 
@@ -84,6 +90,24 @@ public class MainActivity extends BaseActivity {
             }
         });
     }
+
+public void notification(){
+
+    Resources r = getResources();
+    PendingIntent pi = PendingIntent
+            .getActivity(this, 0, new Intent(this, CouponActivity.class), 0);
+    Notification notification = new NotificationCompat.Builder(this)
+            .setTicker(r.getString(R.string.ticker))
+            .setSmallIcon(R.drawable.logo)
+            .setContentTitle(r.getString(R.string.titleofnotification))
+            .setContentText(r.getString(R.string.contentofnotification))
+            .setContentIntent(pi)
+            .setAutoCancel(true)
+            .build();
+    NotificationManager notificationManager = (NotificationManager)
+            getSystemService(NOTIFICATION_SERVICE);
+    notificationManager.notify(0,notification);
+}
 
     private void loginUser(){
         String url = getString(R.string.service_login);
@@ -110,12 +134,17 @@ public class MainActivity extends BaseActivity {
                         Log.d(TAG, response.body().toString());
 
                         String username = user.getString("name");
-                        Log.d(TAG, response.body().toString());
-                        UserData userData = UserData.getInstance();
-                        userData.setId(id);
-                        userData.setUsername(username);
-                        saveUserCredentials();
-                        goToPosts();
+                        String updates = user.getString("updates");
+                        if (updates.equals("true")){
+                            notification();
+                        }
+                            Log.d(TAG, response.body().toString());
+                            UserData userData = UserData.getInstance();
+                            userData.setId(id);
+                            userData.setUsername(username);
+                            saveUserCredentials();
+                            goToPosts();
+
                     }
                 } catch (JSONException e) {
                     makeToast(R.string.toast_try_again);

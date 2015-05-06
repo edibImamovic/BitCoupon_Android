@@ -47,7 +47,7 @@ public class UserProfileActivity extends BaseActivity {
                 profilePicture,
                 Toast.LENGTH_SHORT).show();
         mImage = (ImageView) findViewById(R.id.imageView_user_profilePicture);
-        String img =getString(R.string.image_path) + profilePicture;
+        String img = profilePicture;
         img = img.replaceAll("\\\\","/");
         Log.d("IMGTAG", img);
         Picasso.with(UserProfileActivity.this).load(img).into(mImage);

@@ -4,6 +4,7 @@ package com.project.bitcoupon.bitcoupon.controllers.FragmentsForCoupons;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,8 +47,10 @@ public class FragmentPage1 extends Fragment {
         couponId= arguments.getInt("couponId");
 
         ImageView mPicture = (ImageView) v.findViewById(R.id.imageview_singleCouponImage);
-        String img = getString(R.string.image_path) + imgPath;
+        String img = imgPath;
+        Log.d("IMAGE UUUURRRLLLL", imgPath);
         img = img.replaceAll("\\\\","/");
+
         Picasso.with(getActivity()).load(img).into(mPicture);
 
 

@@ -31,7 +31,7 @@ public class PayPalActivity extends BaseActivity  {
 
         couponId = it.getIntExtra("couponId", 0);
         String couponIdString = "" +  couponId ;
-        String url = "http://192.168.0.104:9000/api/mobileCheckout/" + couponIdString + "/" + userId;
+        String url = "http://10.0.82.13:9000/api/mobileCheckout/" + couponIdString + "/" + userId;
 
 
 
