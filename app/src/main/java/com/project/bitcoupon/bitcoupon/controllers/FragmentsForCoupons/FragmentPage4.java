@@ -9,9 +9,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.project.bitcoupon.bitcoupon.R;
 import com.project.bitcoupon.bitcoupon.controllers.PayPalActivity;
+import com.project.bitcoupon.bitcoupon.singletons.UserData;
 import com.squareup.picasso.Picasso;
 
 /**
@@ -21,6 +23,7 @@ public class FragmentPage4 extends Fragment {
 
     public static final String FRAG_FOUR = "com.project.bitcoupon.bitcoupon.frag.four";
     private  int couponId;
+    String email;
     public FragmentPage4() {
         // Required empty public constructor
     }
@@ -32,6 +35,8 @@ public class FragmentPage4 extends Fragment {
         View v = inflater.inflate(R.layout.fragment_fragment_page4, container, false);
         Bundle arguments = getArguments();
         int position = arguments.getInt(FRAG_FOUR);
+
+        email = UserData.getInstance().getEmail();
 
         String name = arguments.getString("name");
         couponId = arguments.getInt("couponId");
@@ -64,17 +69,27 @@ public class FragmentPage4 extends Fragment {
         mSeller.setText(getString(R.string.seller) + seller);
 
         Button buyButton = (Button)v.findViewById(R.id.buy_button);
-        buyButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getActivity(), PayPalActivity.class);
+        if(email != null ) {
+            buyButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
 
-                i.putExtra("couponId", couponId);
-                startActivity(i);
-            }
-        });
+                    Intent i = new Intent(getActivity(), PayPalActivity.class);
+                    i.putExtra("couponId", couponId);
+                    startActivity(i);
+                }
 
+            });
+        }else{
+            buyButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(getActivity(), "You need to be logged in.", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
         return v;
+
     }
 
 

@@ -85,7 +85,7 @@
 
     <string name="title_activity_update_user_profile">Update Profile</string>
     <string name="textView_updateProfil_username">New username</string>
-    <string name="textView_updateProfile_view">UPDATE PROFILE</string>
+    <string name="textView_updateProfile_view">Update profile</string>
     <string name="textView_updateProfil_surname">Surname: </string>
     <string name="textView_updateProfil_dob">Date: </string>
     <string name="button_updateUserProfile_save">Save</string>
