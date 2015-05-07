@@ -29,8 +29,6 @@ public class SingleBoughtCoupon extends BaseActivity {
     private TextView mPayemantId;
     private TextView mToken;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,7 +50,9 @@ public class SingleBoughtCoupon extends BaseActivity {
         //For picture
         mPicture = (ImageView) findViewById(R.id.imageView_single_bought_CouponIMG);
         Log.d(TAG, "" + mPicture.isShown());
+
         String img = imgPath;
+
         img = img.replaceAll("\\\\","/");
         Picasso.with(this).load(img).into(mPicture);
         mName = (TextView) findViewById(R.id.textview_single_BoughtCouponName);
@@ -61,24 +61,21 @@ public class SingleBoughtCoupon extends BaseActivity {
         mDescription.setText(description);
 
         mTransactonId = (TextView) findViewById(R.id.textview_transaction);
-        mTransactonId.setText("Transaction ID: " + transactionId);
+        mTransactonId.setText(getString(R.string.transactionID) + transactionId);
 
         mQuantity = (TextView) findViewById(R.id.textview_quantity);
-        mQuantity.setText("Quantity: " +quantity);
+        mQuantity.setText(getString(R.string.quantity) +quantity);
 
         mTotalPrice = (TextView) findViewById(R.id.textview_total_price);
-        mTotalPrice.setText("Total price: " +totalPrice + getString(R.string.currency) );
+        mTotalPrice.setText(getString(R.string.total_price) +totalPrice + getString(R.string.currency) );
 
         mPayemantId = (TextView) findViewById(R.id.textview_paymant_id);
-        mTotalPrice.setText("Token: " +token);
+        mPayemantId.setText(getString(R.string.token) +token);
 
         mTrasactionDate = (TextView) findViewById(R.id.textview_transaction_date);
-        mTrasactionDate.setText("Transaction Date: " + transactionDate);
+        mTrasactionDate.setText(getString(R.string.transaction_date) + transactionDate);
 
         mPrice = (TextView) findViewById(R.id.textview_single_BoughtCouponPrice);
-        mPrice.setText("Price: " + price + getString(R.string.currency));
-
-
+        mPrice.setText(getString(R.string.price) + price + getString(R.string.currency));
     }
-
 }

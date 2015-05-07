@@ -25,11 +25,10 @@ public class FragmentPage1 extends Fragment {
     private SharedPreferences mSharedPreferences;
 
     public static final String FRAG_ONE = "com.project.bitcoupon.bitcoupon.frag.one";
-   private  int couponId;
+    private  int couponId;
     public FragmentPage1() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -40,9 +39,7 @@ public class FragmentPage1 extends Fragment {
         Bundle arguments = getArguments();
         int position = arguments.getInt(FRAG_ONE);
 
-
         //For picture
-
         String imgPath = arguments.getString("picture");
         String categoryName = arguments.getString("categoryName");
         String name = arguments.getString("name");
@@ -50,22 +47,21 @@ public class FragmentPage1 extends Fragment {
         couponId= arguments.getInt("couponId");
 
         ImageView mPicture = (ImageView) v.findViewById(R.id.imageview_singleCouponImage);
+
         String img = imgPath;
-        Log.d("IMAGE UUUURRRLLLL", imgPath);
+
         img = img.replaceAll("\\\\","/");
 
         Picasso.with(getActivity()).load(img).into(mPicture);
 
-
-
         TextView  mCategoryName = (TextView) v.findViewById(R.id.textview_name_of_category);
-        mCategoryName.setText("Category Name: " + categoryName);
+        mCategoryName.setText(getString(R.string.category_name) + categoryName);
 
         TextView  mName = (TextView) v.findViewById(R.id.textview_singleCouponName);
         mName.setText(name);
 
         TextView mPrice = (TextView) v.findViewById(R.id.textview_singleCouponPrice);
-        mPrice.setText("Price: " + price + " " +getString(R.string.currency));
+        mPrice.setText(getString(R.string.price) + price + " " +getString(R.string.currency));
 
         Button buyButton = (Button)v.findViewById(R.id.buy_button);
         buyButton.setOnClickListener(new View.OnClickListener() {

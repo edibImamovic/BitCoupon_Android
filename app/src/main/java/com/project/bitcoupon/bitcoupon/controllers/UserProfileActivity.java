@@ -43,17 +43,11 @@ public class UserProfileActivity extends BaseActivity {
         String city = it.getStringExtra("city");
         String profilePicture = it.getStringExtra("picture");
 
-        Toast.makeText(this,
-                profilePicture,
-                Toast.LENGTH_SHORT).show();
         mImage = (ImageView) findViewById(R.id.imageView_user_profilePicture);
         String img = profilePicture;
         img = img.replaceAll("\\\\","/");
         Log.d("IMGTAG", img);
         Picasso.with(UserProfileActivity.this).load(img).into(mImage);
-
-
-
 
         mId = (TextView) findViewById(R.id.textView_user_profile_id);
         mId.setText(id);
@@ -93,7 +87,5 @@ public class UserProfileActivity extends BaseActivity {
                 startActivity(i);
             }
         });
-
-
     }
 }

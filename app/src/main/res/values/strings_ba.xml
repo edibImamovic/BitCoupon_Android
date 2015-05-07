@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+    <string name="app_name">BitCoupon</string>
+
+    <string name="currency">KM</string>
+    <string name="transactionID">ID transakcije: </string>
+    <string name="quantity">Kolićina: </string>
+    <string name="total_price">Ukupna cijena: </string>
+    <string name="token">Token: </string>
+    <string name="transaction_date">Datum transakcije: </string>
+    <string name="price">Cijena: </string>
+    <string name="coupon_offer">Ponuda kupona</string>
+    <string name="description">Opis</string>
+    <string name="remark">Napomena</string>
+    <string name="detailed_description">Detaljan opis</string>
+    <string name="category_name">Ime kategorije</string>
+    <string name="coupons_left">Broj preostalih kupona u ponudi: </string>
+    <string name="maximal_coupons">Maksimalna narudžba kupona: </string>
+    <string name="seller">Prodavač kupona: </string>
+
+
+    <string name="hint_email">Vaš email</string>
+    <string name="hint_password">Vaš password</string>
+    <string name="hint_filter">Pretraži</string>
+
+    <string name="button_login">Loguj se</string>
+    <string name="continue_without_logging">Nastavi bez prethodnog logovanja</string>
+
+    <string name="key_user_email">bitcamp.benjamin.service.user_email</string>
+    <string name="key_user_password">bitcamp.benjamin.service.user_password</string>
+
+    <string name="toast_try_again">Neštno nije uredu! Pokušaj ponovo</string>
+
+    <string name="title_activity_posts">PostsActivity</string>
+
+    <string name="action_logout">Logout</string>
+    <string name="action_profile">Profil</string>
+    <string name="User_Id">ID korisnika: </string>
+    <string name="Usernema">Ime: </string>
+    <string name="user_surname">Preyime: </string>
+    <string name="user_email">Email: </string>
+    <string name="user_adress">Adresa: </string>
+    <string name="user_city">Grad: </string>
+    <string name="button_user_coupons">Moji kuponi</string>
+
+
+    <string name="name_of_company">Ime kompanije: </string>
+    <string name="company_email">Email: </string>
+    <string name="company_address">Adres: </string>
+    <string name="company_city">Grad: </string>
+    <string name="company_contact">Kontakt: </string>
+
+    <string name="button_back">Back</string>
+    <string name="button_companies">Companies</string>
+    <string name="button_coupon">Coupons</string>
+
+
+    <string name="action_settings">Postavke</string>
+    <string name="title_activity_company">Kompanija</string>
+    <string name="title_activity_coupon">Kuponi</string>
+    <string name="title_activity_single_bought_coupon">Kupljeni kuponi</string>
+    <string name="title_activity_single_company">Kompanija</string>
+    <string name="title_activity_single_coupon">Kupon</string>
+    <string name="title_activity_user_coupons">Korisnikovi kuponi</string>
+    <string name="title_activity_user_profile">Korisnikov profil</string>
+    <string name="action_login">Login</string>
+    <string name="action_companies">Kompanije</string>
+    <string name="action_coupons">Kuponi</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="buy_button">Kupi kupon</string>
+
+    <string name="title_activity_pay_pal">Buy</string>
+    <string name="expireDate">Datum isteka: </string>
+    <string name="name_of_category">Ime kategorije:</string>
+
+    <string name="title_activity_update_user_profile">Promijeni profilne podatke</string>
+    <string name="textView_updateProfil_username">Novo ime</string>
+    <string name="textView_updateProfile_view">PROMIJENI PROFILNE PODATKE</string>
+    <string name="textView_updateProfil_surname">Preyime:</string>
+    <string name="textView_updateProfil_dob">Datum:</string>
+    <string name="button_updateUserProfile_save">Spasi</string>
+    <string name="title_activity_user_settings">Korisnikove postavke</string>
+
+    -->
+</resources>

@@ -30,9 +30,11 @@ import java.io.IOException;
 public class BaseActivity extends ActionBarActivity {
 
     public static final String SHARED_PREFERENCES = "ba.bitcoupon.shared_preferences";
-
+    /**
+     * This is method for making message on user mobile display - Toast
+     * @param messageId
+     */
     private void makeToast(final int messageId){
-
         new Handler(Looper.getMainLooper())
                 .post(new Runnable() {
                     @Override
@@ -42,9 +44,14 @@ public class BaseActivity extends ActionBarActivity {
                                 Toast.LENGTH_SHORT).show();
                     }
                 });
-
     }
 
+    /**
+     * This is responsefo our JSON request
+     * onFailure - if JSON don't successe
+     * onResponse - if JSON success we expect this attributes
+     * @return
+     */
     private Callback getProfile() {
         return new Callback() {
             @Override
@@ -55,9 +62,7 @@ public class BaseActivity extends ActionBarActivity {
             @Override
             public void onResponse(Response response) throws IOException {
                 String responseJson = response.body().string();
-
                 try {
-
                     JSONObject profile = new JSONObject(responseJson);
                     Intent goToProfile = new Intent(getApplicationContext() , UserProfileActivity.class);
                     goToProfile.putExtra("id", profile.getString("id"));
@@ -68,8 +73,6 @@ public class BaseActivity extends ActionBarActivity {
                     goToProfile.putExtra("city",profile.getString("city"));
                     String pic = profile.getString("picture");
                     goToProfile.putExtra("picture", profile.getString("picture"));
-
-
                     startActivity(goToProfile);
 
                 } catch (JSONException e) {
@@ -80,7 +83,11 @@ public class BaseActivity extends ActionBarActivity {
         };
     }
 
-
+    /**
+     * Go to SharedPreferences and check if there is already email and password
+     * @param ctx
+     * @return if we have email and password return true
+     */
     public static boolean checkIfLogged(Context ctx){
         SharedPreferences sharedPreferences = ctx.getSharedPreferences(SHARED_PREFERENCES, Context.MODE_PRIVATE);
         String email = sharedPreferences.getString(
@@ -98,6 +105,11 @@ public class BaseActivity extends ActionBarActivity {
         return true;
     }
 
+    /**
+     * This is manu items for all activities, and some security if user is logged or not
+     * @param activity
+     * @param menu
+     */
     public static void createMenuItems(Activity activity, Menu menu){
         // Inflate the menu; this adds items to the action bar if it is present.
         activity.getMenuInflater().inflate(R.menu.menu_main, menu);
@@ -152,7 +164,11 @@ public class BaseActivity extends ActionBarActivity {
         Log.d("LOGIN", "IN ON ITEM SELECT.");
     }
 
-
+    /**
+     * This is Overridden method for Menu bar
+     * @param item
+     * @return
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -208,8 +224,6 @@ public class BaseActivity extends ActionBarActivity {
             return true;
         }
 
-
         return super.onOptionsItemSelected(item);
     }
-
 }

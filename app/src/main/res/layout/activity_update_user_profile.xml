@@ -10,6 +10,7 @@
                 tools:context="com.project.bitcoupon.bitcoupon.controllers.UpdateUserProfileActivity">
 
 
+
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -104,13 +105,11 @@
             <Button
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:gravity="right"
                 android:textColor="#ffffff"
                 android:backgroundTint="#FE9F20"
                 android:background="#FE9F20"
                 android:text="@string/button_updateUserProfile_save"
-                android:id="@+id/button_updateUserProfile_save"
-                android:layout_gravity="center"/>
+                android:id="@+id/button_updateUserProfile_save"/>
 
         </LinearLayout>
     </ScrollView>

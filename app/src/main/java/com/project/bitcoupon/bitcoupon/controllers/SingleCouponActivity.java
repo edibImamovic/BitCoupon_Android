@@ -62,6 +62,11 @@ public class SingleCouponActivity extends BaseActivity {
             super(fm);
         }
 
+        /**
+         * Method that send information to each fragment
+         * @param position
+         * @return
+         */
         @Override
         public Fragment getItem(int position) {
             Fragment current;
@@ -114,27 +119,31 @@ public class SingleCouponActivity extends BaseActivity {
             }
         }
 
+        /**
+         * Method for fragment count
+         * @return
+         */
         @Override
         public int getCount() {
             return 4;
         }
 
-
+        /**
+         * For each fragment set title
+         * @param position
+         * @return
+         */
         @Override
         public CharSequence getPageTitle(int position) {
             if (position == 0) {
-                return "Coupon Offer";
+                return getString(R.string.coupon_offer);
             } else if (position == 1) {
-                return "Description";
+                return getString(R.string.description);
             } else if (position == 2) {
-                return "Remark";
+                return getString(R.string.remark);
             } else {
-                return "Detailed Description";
+                return getString(R.string.detailed_description);
             }
-
-
         }
-
-
     }
 }

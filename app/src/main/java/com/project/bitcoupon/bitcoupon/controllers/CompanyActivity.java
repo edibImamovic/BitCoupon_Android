@@ -47,10 +47,8 @@ public class CompanyActivity extends BaseActivity {
     private static final String TAG = "CompanyActivity_Tag";
     private EditText mFilter;
     private CompanyAdapter mAdapter;
-    private Button mCoupon;
     public static final String MyPREFERENCES = "MyPrefs" ;
     static ArrayList<Company> companies = new ArrayList<Company>();
-    private SharedPreferences mSharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,18 +64,20 @@ public class CompanyActivity extends BaseActivity {
             companies = companyFeed.getFeed();
         }
 
+        // This is custom Adapter for List
         mAdapter = new CompanyAdapter(CompanyActivity.this, companies);
 
         mCompanyList.setAdapter(mAdapter);
         mCompanyList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                /**
+                 * For each item in list, if is clicked send a post Request
+                 */
                 Company clicked = companies.get(position);
-                // int companyId = clicked.getmId();
                 String url = getString(R.string.service_single_company);
                 JSONObject clickedCompany = new JSONObject();
                 try {
-                    //    clickedCompany.put("id", Integer.toString(companyId));
                     clickedCompany.put("email", clicked.getmEmail());
                     Log.d(TAG, "json email for post");
                 } catch (JSONException e) {
@@ -91,6 +91,9 @@ public class CompanyActivity extends BaseActivity {
 
         mCompanyList.setAdapter(mAdapter);
 
+        /**
+         * This is search filter for our liste
+         */
         mFilter = (EditText)findViewById(R.id.edit_text_filter);
         mFilter.addTextChangedListener(new TextWatcher() {
             @Override
@@ -109,6 +112,12 @@ public class CompanyActivity extends BaseActivity {
         });
     }
 
+    /**
+     * This is response for our JSON request
+     * onFailure - if JSON don't successe
+     * onResponse - if JSON success we expect this attributes
+     * @return
+     */
     private Callback getCompany() {
         return new Callback() {
             @Override
@@ -139,6 +148,10 @@ public class CompanyActivity extends BaseActivity {
         };
     }
 
+    /**
+    * This is method for making message on user mobile display - Toast
+    * @param messageId
+    */
     private void makeToast(final int messageId){
 
         new Handler(Looper.getMainLooper())
@@ -152,8 +165,12 @@ public class CompanyActivity extends BaseActivity {
                 });
     }
 
-
-
+    /**
+     * This is response for our JSON request
+     * onFailure - if JSON don't successe
+     * onResponse - if JSON success we expect this attributes
+     * @return
+     */
     private Callback getProfile() {
         return new Callback() {
             @Override
@@ -188,8 +205,9 @@ public class CompanyActivity extends BaseActivity {
         };
     }
 
-
-
+    /**
+     * This is private class for creating custom adapter
+     */
     private  class CompanyAdapter extends ArrayAdapter<Company> {
 
         private final Context context;
@@ -221,7 +239,9 @@ public class CompanyActivity extends BaseActivity {
             return mListToShow.get(position);
         }
 
-
+        /**
+         * Search filter for list of companies when User input some value
+         */
         private class CompaniesFilter extends Filter {
 
             @Override
@@ -260,8 +280,13 @@ public class CompanyActivity extends BaseActivity {
             }
         }
 
-
-
+        /**
+         * For all companies in list we define how will be shown to user in one list
+         * @param position - id of companies in list
+         * @param convertView - layout view for one companies in list
+         * @param viewGroup
+         * @return - convertView
+         */
 
         @Override
         public View getView(int position, View convertView, ViewGroup viewGroup) {
@@ -285,10 +310,6 @@ public class CompanyActivity extends BaseActivity {
             Log.d(TAG, "Image:" + img);
             Picasso.with(getContext()).load(img).into(companyImage);
             return convertView;
-
         }
     }
-
-
-
 }

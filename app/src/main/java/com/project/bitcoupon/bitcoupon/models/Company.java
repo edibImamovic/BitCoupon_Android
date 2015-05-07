@@ -11,10 +11,18 @@ public class Company {
     private String mCity;
     private String mContact;
 
-
-
     private String mLogo;
 
+    /**
+     * COnstructor
+     * @param id
+     * @param name
+     * @param email
+     * @param address
+     * @param city
+     * @param contact
+     * @param logo
+     */
     public Company(int id, String name, String email, String address, String city, String contact, String logo) {
         this.mId = id;
         this.mName = name;
@@ -25,6 +33,12 @@ public class Company {
         this.mLogo = logo;
     }
 
+    /**
+     * Constructor
+     * @param id
+     * @param name
+     * @param logo
+     */
     public Company(int id, String name, String logo){
         this.mId = id;
         this.mName = name;
@@ -32,6 +46,13 @@ public class Company {
 
     }
 
+    /**
+     * Constructor
+     * @param id
+     * @param name
+     * @param email
+     * @param logo
+     */
     public Company(int id, String name,String email, String logo){
         this.mId = id;
         this.mName = name;
@@ -51,7 +72,10 @@ public class Company {
                 '}';
     }
 
-
+    /**
+     * Getter and seteri
+     * @return
+     */
     public int getmId() {
         return mId;
     }

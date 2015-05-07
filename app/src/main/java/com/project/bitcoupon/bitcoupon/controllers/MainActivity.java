@@ -48,6 +48,8 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
 
 
+        // On create check if user was logged in last time
+
         mSharedPreferences = this.getSharedPreferences(SHARED_PREFERENCES, Context.MODE_PRIVATE);
         String email = mSharedPreferences.getString(
                 getString(R.string.key_user_email),
@@ -65,6 +67,7 @@ public class MainActivity extends BaseActivity {
             loginUser();
         }
 
+        //If user is not logged in already, then take username and password from user input
         final EditText editEmail = (EditText) findViewById(R.id.edit_text_email);
         final EditText editPassword = (EditText) findViewById(R.id.edit_text_password);
 
@@ -91,6 +94,7 @@ public class MainActivity extends BaseActivity {
         });
     }
 
+
 public void notification(){
 
     Resources r = getResources();
@@ -109,6 +113,11 @@ public void notification(){
     notificationManager.notify(0,notification);
 }
 
+
+    /**
+     * Send post request
+     */
+
     private void loginUser(){
         String url = getString(R.string.service_login);
         Callback callback = loginVerification();
@@ -117,6 +126,12 @@ public void notification(){
         ServiceRequest.post(url, json, callback);
     }
 
+    /**
+     * This is response for our JSON request
+     * onFailure - if JSON don't successe
+     * onResponse - if JSON success we expect this attributes
+     * @return
+     */
     private Callback loginVerification(){
         return new Callback() {
             @Override
@@ -154,6 +169,9 @@ public void notification(){
         };
     }
 
+    /**
+     * After Loging in set email and password in shearedPreferences
+     */
     private void saveUserCredentials(){
         SharedPreferences.Editor editor = mSharedPreferences.edit();
 
@@ -171,8 +189,11 @@ public void notification(){
         editor.commit();
     }
 
+    /**
+     * This is method for making message on user mobile display - Toast
+     * @param messageId
+     */
     private void makeToast(final int messageId){
-
         new Handler(Looper.getMainLooper())
                 .post(new Runnable() {
                     @Override
@@ -182,14 +203,21 @@ public void notification(){
                                 Toast.LENGTH_SHORT).show();
                     }
                 });
-
     }
 
+    /**
+     * Go to another activity
+     */
     private void goToPosts(){
         Intent test = new Intent(this, CouponActivity.class);
         startActivity(test);
     }
 
+    /**
+     * Set emial and Password in UserData
+     * @param email
+     * @param password
+     */
     private void setUserData(String email, String password){
         UserData userData = UserData.getInstance();
         userData.setEmail(email);

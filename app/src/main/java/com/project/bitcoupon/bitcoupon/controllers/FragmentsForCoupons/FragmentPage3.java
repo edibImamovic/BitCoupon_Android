@@ -35,15 +35,12 @@ public class FragmentPage3 extends Fragment {
         Bundle arguments = getArguments();
         int position = arguments.getInt(FRAG_THREE);
 
-
         //For picture
         String imgPath = arguments.getString("picture");
         String name = arguments.getString("name");
         String price = arguments.getString("price");
         couponId= arguments.getInt("couponId");
         String remark = arguments.getString("remark");
-
-
 
         TextView mName = (TextView) v.findViewById(R.id.textview_singleCouponName);
         mName.setText(name);
@@ -52,15 +49,15 @@ public class FragmentPage3 extends Fragment {
         mRemark.setText(remark);
 
         ImageView mPicture = (ImageView) v.findViewById(R.id.imageview_singleCouponImage);
+
         String img = imgPath;
+
         img = img.replaceAll("\\\\","/");
         Picasso.with(getActivity()).load(img).into(mPicture);
 
 
         TextView mPrice = (TextView) v.findViewById(R.id.textview_singleCouponPrice);
-        mPrice.setText("Price: " + price + " " +getString(R.string.currency));
-
-
+        mPrice.setText(getString(R.string.price) + price + " " +getString(R.string.currency));
 
         Button buyButton = (Button)v.findViewById(R.id.buy_button);
         buyButton.setOnClickListener(new View.OnClickListener() {
@@ -72,9 +69,6 @@ public class FragmentPage3 extends Fragment {
                 startActivity(i);
             }
         });
-
         return v;
     }
-
-
 }
