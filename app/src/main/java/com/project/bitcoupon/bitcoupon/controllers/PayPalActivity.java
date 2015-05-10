@@ -32,7 +32,7 @@ public class PayPalActivity extends BaseActivity  {
         String couponIdString = "" +  couponId ;
 
         String url = getString(R.string.IP) +
-                ":9000/api/mobileCheckout/" + couponIdString + "/" + userId;
+                "/api/mobileCheckout/" + couponIdString + "/" + userId;
 
 
         /**
