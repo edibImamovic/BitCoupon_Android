@@ -3,16 +3,16 @@
 
 
 
-    <string name="IP">http://10.0.82.13</string>
-    <string name="service_login">http://10.0.82.13:9000/api/login</string>
-    <string name="service_posts">http://10.0.82.13:9000/api/coupons</string>
-    <string name="service_single_coupon">http://10.0.82.13:9000/api/coupon</string>
-    <string name="service_user_profile">http://10.0.82.13:9000/api/userProfile</string>
-    <string name="service_user_coupons">http://10.0.82.13:9000/api/boughtCoupons</string>
-    <string name="service_single_user_coupon">http://10.0.82.13:9000/api/boughtCouponDetails</string>
-    <string name="service_companies">http://10.0.82.13:9000/api/companies</string>
-    <string name="service_single_company">http://10.0.82.13:9000/api/companyProfile</string>
-    <string name="service_edit_user_profile">http://10.0.82.13:9000/api/updateUser</string>
+    <string name="IP">http://bitcoupon.cloudapp.net</string>
+    <string name="service_login">http://bitcoupon.cloudapp.net/api/login</string>
+    <string name="service_posts">http://bitcoupon.cloudapp.net/api/coupons</string>
+    <string name="service_single_coupon">http://bitcoupon.cloudapp.net/api/coupon</string>
+    <string name="service_user_profile">http://bitcoupon.cloudapp.net/api/userProfile</string>
+    <string name="service_user_coupons">http://bitcoupon.cloudapp.net/api/boughtCoupons</string>
+    <string name="service_single_user_coupon">http://bitcoupon.cloudapp.net/api/boughtCouponDetails</string>
+    <string name="service_companies">http://bitcoupon.cloudapp.net/api/companies</string>
+    <string name="service_single_company">http://bitcoupon.cloudapp.net/api/companyProfile</string>
+    <string name="service_edit_user_profile">http://bitcoupon.cloudapp.net/api/updateUser</string>
 
 
 <!--

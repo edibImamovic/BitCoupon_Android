@@ -50,18 +50,18 @@ public class PayPalActivity extends BaseActivity  {
         webView.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                if (Uri.parse(url).getHost().equals( "http://10.0.82.13:9000/api/backToMobile")) {
+                if (Uri.parse(url).getHost().equals( "http://bitcoupon.cloudapp.net/api/backToMobile")) {
                     Intent i = new Intent(PayPalActivity.this, UserProfileActivity.class);
                     startActivity(i);
                     return false;
                 }
 
-                if(url.contains("http://10.0.82.13:9000/api/backToMobile")){
+                if(url.contains("http://bitcoupon.cloudapp.net/api/backToMobile")){
                     Intent i = new Intent(PayPalActivity.this, UserProfileActivity.class);
                     startActivity(i);
                 }
 
-                if (Uri.parse(url).getHost().equals("http://10.0.82.13:9000")) {
+                if (Uri.parse(url).getHost().equals("http://bitcoupon.cloudapp.net")) {
                     Intent j = new Intent(PayPalActivity.this, CouponActivity.class);
                     startActivity(j);
                 }
