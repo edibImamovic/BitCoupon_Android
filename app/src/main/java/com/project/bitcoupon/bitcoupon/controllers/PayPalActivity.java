@@ -45,25 +45,25 @@ public class PayPalActivity extends BaseActivity  {
         settings.setJavaScriptEnabled(true);
         webView.loadUrl(url);
 
+
         // If user decide to go on another web page keep the user inside the app, and If a user has successfully finished his buying, returned him to new activity
         webView.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                if (Uri.parse(url).getHost().equals( "http://" + getString(R.string.IP) + ":9000/api/backToMobile")) {
+                if (Uri.parse(url).getHost().equals( "http://10.0.82.13:9000/api/backToMobile")) {
                     Intent i = new Intent(PayPalActivity.this, UserProfileActivity.class);
                     startActivity(i);
                     return false;
                 }
 
-                if(url.contains("http://" + getString(R.string.IP) + ":9000/api/backToMobile")){
-                    Intent i = new Intent(PayPalActivity.this, CouponActivity.class);
+                if(url.contains("http://10.0.82.13:9000/api/backToMobile")){
+                    Intent i = new Intent(PayPalActivity.this, UserProfileActivity.class);
                     startActivity(i);
                 }
 
-                if (Uri.parse(url).getHost().equals("http://" + getString(R.string.IP) + ":9000")) {
+                if (Uri.parse(url).getHost().equals("http://10.0.82.13:9000")) {
                     Intent j = new Intent(PayPalActivity.this, CouponActivity.class);
                     startActivity(j);
-                    return false;
                 }
 
                 view.loadUrl(url);

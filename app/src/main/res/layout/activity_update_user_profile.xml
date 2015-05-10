@@ -7,14 +7,14 @@
                 android:paddingTop="@dimen/activity_vertical_margin"
                 android:paddingBottom="@dimen/activity_vertical_margin"
                 android:orientation="vertical"
-                tools:context="com.project.bitcoupon.bitcoupon.controllers.UpdateUserProfileActivity">
+                tools:context="com.project.bitcoupon.bitcoupon.controllers.UpdateUserProfileActivity"
+                android:weightSum="1">
 
 
 
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/textView_updateProfile_view"
         android:backgroundTint="#F0F0E9"
         android:background="#F0F0E9"
@@ -24,8 +24,9 @@
 
     <ScrollView
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        xmlns:android="http://schemas.android.com/apk/res/android">
+        android:layout_height="379dp"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_weight="0.93">
 
         <LinearLayout
             android:layout_height="wrap_content"
@@ -54,64 +55,43 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/editText_updateProfile_surname"/>
 
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/textView_updateProfil_dob"
-                android:id="@+id/textView_updateProfil_dob"/>
-
-            <EditText
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:inputType="date"
-                android:ems="10"
-                android:id="@+id/editText_updateProfil_dob"/>
 
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="New Text"
+                android:text="City"
                 android:id="@+id/textView5"/>
 
             <EditText
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/editText4"/>
+                android:id="@+id/editText_updateProfile_city"/>
 
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="New Text"
-                android:id="@+id/textView6"/>
+                android:text="Address"
+                android:id="@+id/textView_updateProfil_address"/>
 
             <EditText
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/editText6"/>
+                android:id="@+id/editText_updateProfile_address"/>
 
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="New Text"
-                android:id="@+id/textView7"/>
-
-            <EditText
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"
-                android:ems="10"
-                android:id="@+id/editText5"/>
-
-            <Button
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#ffffff"
-                android:backgroundTint="#FE9F20"
-                android:background="#FE9F20"
-                android:text="@string/button_updateUserProfile_save"
-                android:id="@+id/button_updateUserProfile_save"/>
 
         </LinearLayout>
     </ScrollView>
+
+    <Button
+        android:layout_width="354dp"
+        android:layout_height="wrap_content"
+        android:textColor="#ffffff"
+        android:backgroundTint="#FE9F20"
+        android:background="#FE9F20"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:text="@string/button_updateUserProfile_save"
+        android:id="@+id/button_updateUserProfile_save"/>
 
 </LinearLayout>

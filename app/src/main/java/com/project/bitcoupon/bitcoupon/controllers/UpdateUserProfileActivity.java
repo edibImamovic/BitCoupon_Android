@@ -53,6 +53,8 @@ public class UpdateUserProfileActivity extends BaseActivity {
 
         username = (EditText) findViewById(R.id.editText_updateProfile_username);
         surname = (EditText) findViewById(R.id.editText_updateProfile_surname);
+        city = (EditText) findViewById(R.id.editText_updateProfile_city);
+        address = (EditText) findViewById(R.id.editText_updateProfile_address);
         // dob = (EditText) findViewById(R.id.editText_updateProfil_dob);
 
         mSaveProfileChangres = (Button) findViewById(R.id.button_updateUserProfile_save);
@@ -61,6 +63,8 @@ public class UpdateUserProfileActivity extends BaseActivity {
             public void onClick(View v) {
                 mUsername = username.getText().toString();
                 mSurname = surname.getText().toString();
+                mCity = city.getText().toString();
+                mAddress = address.getText().toString();
                 //   mDob = dob.getText().toString();
 
                 String url = getString(R.string.service_edit_user_profile);
@@ -71,7 +75,11 @@ public class UpdateUserProfileActivity extends BaseActivity {
                     editProfile.put("username", mUsername);
 
                     editProfile.put("surname", mSurname);
+
+                    editProfile.put("city", mCity);
+                    editProfile.put("address", address);
                     //  editProfile.put("dob", mDob);
+
 
                     Log.d("TAG", "JSON username ");
                 } catch (JSONException e) {

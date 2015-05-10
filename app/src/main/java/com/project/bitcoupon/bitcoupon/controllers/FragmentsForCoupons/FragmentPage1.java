@@ -12,9 +12,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.project.bitcoupon.bitcoupon.R;
 import com.project.bitcoupon.bitcoupon.controllers.PayPalActivity;
+import com.project.bitcoupon.bitcoupon.singletons.UserData;
 import com.squareup.picasso.Picasso;
 
 /**
@@ -23,7 +25,7 @@ import com.squareup.picasso.Picasso;
 public class FragmentPage1 extends Fragment {
 
     private SharedPreferences mSharedPreferences;
-
+    String email;
     public static final String FRAG_ONE = "com.project.bitcoupon.bitcoupon.frag.one";
     private  int couponId;
     public FragmentPage1() {
@@ -34,7 +36,7 @@ public class FragmentPage1 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-
+        email = UserData.getInstance().getEmail();
         View v = inflater.inflate(R.layout.fragment_fragment_page1, container, false);
         Bundle arguments = getArguments();
         int position = arguments.getInt(FRAG_ONE);
@@ -64,16 +66,27 @@ public class FragmentPage1 extends Fragment {
         mPrice.setText(getString(R.string.price) + price + " " +getString(R.string.currency));
 
         Button buyButton = (Button)v.findViewById(R.id.buy_button);
-        buyButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getActivity(), PayPalActivity.class);
 
-                i.putExtra("couponId", couponId);
-                startActivity(i);
-            }
-        });
-        return v;
+        if(email != null ) {
+            buyButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                        Intent i = new Intent(getActivity(), PayPalActivity.class);
+                        i.putExtra("couponId", couponId);
+                        startActivity(i);
+                    }
+
+             });
+        }else{
+            buyButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(getActivity(), "You need to be logged in.", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+       return v;
 
     }
 
